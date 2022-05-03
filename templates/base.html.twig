@@ -21,9 +21,39 @@
         {% endblock %}
     </head>
     <body>
-    {# <div id="titre" style="font-size:50px">Localux</div> #}
-        {% block body %}
-        
-        {% endblock %}
-    </body>
+		
+			<div class="container-fluid" style="background-color: #CC4B2C;">
+				<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav mr-auto">
+							{# <li class="nav-item">
+								<a class="nav-link" href="{{path('home')}}">Accueil</a>
+							</li> #}
+                            <li class="nav-item">
+								<img src ="Localux.jpg" style="height:75px; width:100px; border-radius:8px;"></img>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{path('reservation')}}">Réserver</a>
+							</li>
+                            <li class="nav-item">
+							</li>
+                            <li class="nav-item">
+								<a class="nav-link" href="{{path('reservation')}}">Connexion</a>
+							</li>
+						</ul>
+						{# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							<a style="margin-right:5%" class="btn btn-success" href="{{path('favoris')}}">Mon Tableau de Bord</a>
+							<a style="color:white; margin-right:5%;">
+								{{app.user.prenom}}</a>
+							<a class="btn btn-danger" href="#">Se déconnecter</a>
+						{% else %}
+							<a class="btn btn" href="#" style="background-color: #2ABA2D; color:white;">Se connecter</a>
+						{% endif %} #}
+					</div>
+				</nav>
+			</div>
+			{% block body %}{% endblock %}
+		
+		
+	</body>
 </html>
