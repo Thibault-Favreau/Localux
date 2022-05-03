@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localux
+{% endblock %}
+
+{% block body %}
+<div name="connexion" style="size:100%;">
+    <form method="post">
+        <label for="fname">Login :</label><br>
+        <input id="login" type="text"><br>
+        <label for="fname">Mot de passe :</label><br>
+        <input id="password" type="text"><br>
+        <a href="{{ path('inscription') }}">Pas de compte ? Inscrivez-vous !</a><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
