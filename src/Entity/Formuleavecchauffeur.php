@@ -55,5 +55,65 @@ class Formuleavecchauffeur
      */
     private $id;
 
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(?string $lieu): self
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getTarif(): ?string
+    {
+        return $this->tarif;
+    }
+
+    public function setTarif(?string $tarif): self
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getNumlocation(): ?Locavecchauffeur
+    {
+        return $this->numlocation;
+    }
+
+    public function setNumlocation(?Locavecchauffeur $numlocation): self
+    {
+        $this->numlocation = $numlocation;
+
+        return $this;
+    }
+
+    public function getId(): ?Formule
+    {
+        return $this->id;
+    }
+
+    public function setId(?Formule $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,21 +35,6 @@ class Modele
      */
     private $tarifkmenplus;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Formule", mappedBy="id1")
-     */
-    private $id;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     public function getIdmodele(): ?int
     {
         return $this->idmodele;
@@ -81,31 +64,5 @@ class Modele
         return $this;
     }
 
-    /**
-     * @return Collection<int, Formule>
-     */
-    public function getId(): Collection
-    {
-        return $this->id;
-    }
-
-    public function addId(Formule $id): self
-    {
-        if (!$this->id->contains($id)) {
-            $this->id[] = $id;
-            $id->addId1($this);
-        }
-
-        return $this;
-    }
-
-    public function removeId(Formule $id): self
-    {
-        if ($this->id->removeElement($id)) {
-            $id->removeId1($this);
-        }
-
-        return $this;
-    }
 
 }

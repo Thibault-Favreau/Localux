@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Formule
  *
- * @ORM\Table(name="FORMULE")
+ * @ORM\Table(name="FORMULE", uniqueConstraints={@ORM\UniqueConstraint(name="IDFormule", columns={"IDFormule"})})
  * @ORM\Entity
  */
 class Formule
@@ -28,27 +28,22 @@ class Formule
      */
     private $libelle;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Modele", inversedBy="id")
-     * @ORM\JoinTable(name="coute",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="ID", referencedColumnName="IDFormule")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="ID_1", referencedColumnName="IdModele")
-     *   }
-     * )
-     */
-    private $id1;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getIdformule(): ?int
     {
-        $this->id1 = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->idformule;
     }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
 
 }

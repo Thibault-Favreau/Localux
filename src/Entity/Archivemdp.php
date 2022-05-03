@@ -31,9 +31,9 @@ class Archivemdp
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="DATECHANGEMENT", type="datetime", nullable=true)
+     * @ORM\Column(name="DATECHANGEMENT", type="datetime", nullable=true, options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $datechangement;
+    private $datechangement = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \User
@@ -44,6 +44,47 @@ class Archivemdp
      * })
      */
     private $idIduser;
+
+    public function getIdmdp(): ?int
+    {
+        return $this->idmdp;
+    }
+
+    public function getMdp(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp(?string $mdp): self
+    {
+        $this->mdp = $mdp;
+
+        return $this;
+    }
+
+    public function getDatechangement(): ?\DateTimeInterface
+    {
+        return $this->datechangement;
+    }
+
+    public function setDatechangement(?\DateTimeInterface $datechangement): self
+    {
+        $this->datechangement = $datechangement;
+
+        return $this;
+    }
+
+    public function getIdIduser(): ?User
+    {
+        return $this->idIduser;
+    }
+
+    public function setIdIduser(?User $idIduser): self
+    {
+        $this->idIduser = $idIduser;
+
+        return $this;
+    }
 
 
 }

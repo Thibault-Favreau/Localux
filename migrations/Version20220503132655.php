@@ -1,0 +1,47 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DoctrineMigrations;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
+final class Version20220503132655 extends AbstractMigration
+{
+    public function getDescription(): string
+    {
+        return '';
+    }
+
+    public function up(Schema $schema): void
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE COUTE DROP FOREIGN KEY COUTE_ibfk_2');
+        $this->addSql('ALTER TABLE COUTE DROP FOREIGN KEY COUTE_ibfk_1');
+        $this->addSql('ALTER TABLE COUTE CHANGE ID ID INT AUTO_INCREMENT NOT NULL, CHANGE ID_FORMULE ID_FORMULE INT DEFAULT NULL, CHANGE ID_MODELE ID_MODELE SMALLINT DEFAULT NULL');
+        $this->addSql('ALTER TABLE COUTE ADD CONSTRAINT FK_A8105CFB4C284A81 FOREIGN KEY (ID_FORMULE) REFERENCES FORMULE (IDFormule)');
+        $this->addSql('ALTER TABLE COUTE ADD CONSTRAINT FK_A8105CFBBD4A17C6 FOREIGN KEY (ID_MODELE) REFERENCES MODELE (IdModele)');
+        $this->addSql('ALTER TABLE FORMULEAVECCHAUFFEUR CHANGE NUMLOCATION NUMLOCATION INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE FORMULESANSCHAUFFEUR CHANGE NUMLOCATION NUMLOCATION INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE LOCATION CHANGE IMMATRICULATION IMMATRICULATION CHAR(7) DEFAULT NULL, CHANGE ID ID INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE VEHICULE CHANGE ID ID SMALLINT DEFAULT NULL');
+    }
+
+    public function down(Schema $schema): void
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE COUTE DROP FOREIGN KEY FK_A8105CFB4C284A81');
+        $this->addSql('ALTER TABLE COUTE DROP FOREIGN KEY FK_A8105CFBBD4A17C6');
+        $this->addSql('ALTER TABLE COUTE CHANGE ID ID INT NOT NULL, CHANGE ID_FORMULE ID_FORMULE INT NOT NULL, CHANGE ID_MODELE ID_MODELE SMALLINT NOT NULL');
+        $this->addSql('ALTER TABLE COUTE ADD CONSTRAINT COUTE_ibfk_2 FOREIGN KEY (ID_FORMULE) REFERENCES FORMULE (IDFormule) ON UPDATE CASCADE ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE COUTE ADD CONSTRAINT COUTE_ibfk_1 FOREIGN KEY (ID_MODELE) REFERENCES MODELE (IdModele) ON UPDATE CASCADE ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE FORMULEAVECCHAUFFEUR CHANGE NUMLOCATION NUMLOCATION INT NOT NULL');
+        $this->addSql('ALTER TABLE FORMULESANSCHAUFFEUR CHANGE NUMLOCATION NUMLOCATION INT NOT NULL');
+        $this->addSql('ALTER TABLE LOCATION CHANGE IMMATRICULATION IMMATRICULATION CHAR(7) NOT NULL, CHANGE ID ID INT NOT NULL');
+        $this->addSql('ALTER TABLE VEHICULE CHANGE ID ID SMALLINT NOT NULL');
+    }
+}

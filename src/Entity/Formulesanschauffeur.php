@@ -55,5 +55,65 @@ class Formulesanschauffeur
      */
     private $id;
 
+    public function getDuree(): ?int
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(?int $duree): self
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    public function getNbkmsinclus(): ?int
+    {
+        return $this->nbkmsinclus;
+    }
+
+    public function setNbkmsinclus(?int $nbkmsinclus): self
+    {
+        $this->nbkmsinclus = $nbkmsinclus;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getNumlocation(): ?Locsanschauffeur
+    {
+        return $this->numlocation;
+    }
+
+    public function setNumlocation(?Locsanschauffeur $numlocation): self
+    {
+        $this->numlocation = $numlocation;
+
+        return $this;
+    }
+
+    public function getId(): ?Formule
+    {
+        return $this->id;
+    }
+
+    public function setId(?Formule $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }
