@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      */
     public function reservation(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('reservation/reservation.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
@@ -34,6 +34,7 @@ class HomeController extends AbstractController
      */
     public function inscription(): Response
     {
+
         return $this->render('inscription/inscription.html.twig', [
             'controller_name' => 'HomeController',
         ]);
@@ -45,6 +46,16 @@ class HomeController extends AbstractController
     public function validation(): Response
     {
         return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    /**
+     * @Route("/login", name="security_login")
+     */
+    public function login(): Response
+    {
+        return $this->render('home/reservation.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

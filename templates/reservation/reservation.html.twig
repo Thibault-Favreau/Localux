@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 style="text-align:center">Réservez votre véhicule</h1>
+</div>
+
+<div id="formules">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+		<div class="card" style="border-radius:20px; width:16rem; height:350px; background-color:green; text:white; ">
+			<div class="card-body">
+            <h4 class="card-title" style="color:white;">Formule demi journée</h4>
+            <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 4h</a>
+            <a class="card-text" style="color:white;"> -> Jusqu'a 150 km</a>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card" style="border-radius:20px; width:16rem; height:350px; background-color:orange; text:white; ">
+			<div class="card-body">
+            <h4 class="card-title" style="color:white;">Formule demi journée</h4>
+            <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</a>
+            <a class="card-text" style="color:white;"> -> Jusqu'a 300 km</a>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card" style="border-radius:20px; width:16rem; height:350px; background-color:red; text:white; ">
+			    <div class="card-body">
+                <h4 class="card-title" style="color:white;">Formule demi journée</h4>
+                <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 48h</a>
+                <a class="card-text" style="color:white;"> -> Jusqu'a 700 km</a>
+                </div>
+        </div>
+        
+        </div>
+    </div>
+
+    </div>
+</div>
+<div class="center">
+  <div class="property-card">
+    <a href="#">
+      <div class="property-image">
+        <div class="property-image-title">
+          <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+        </div>
+      </div></a>
+    <div class="property-description">
+      <h5> Modèle </h5>
+      <p>Infos sur la voiture</p>
+    </div>
+    <a href="#">
+      <div class="property-social-icons">
+        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}
