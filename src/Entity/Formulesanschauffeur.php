@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="FORMULESANSCHAUFFEUR", indexes={@ORM\Index(name="FK_FORMULESANSCHAUFFEUR_LOCSANSCHAUFFEUR", columns={"NUMLOCATION"})})
  * @ORM\Entity
  */
-class Formulesanschauffeur
+class Formulesanschauffeur extends Formule
 {
     /**
      * @var int|null
@@ -26,12 +26,7 @@ class Formulesanschauffeur
      */
     private $nbkmsinclus;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LIBELLE", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $libelle;
+    
 
     /**
      * @var \Locsanschauffeur
@@ -43,17 +38,6 @@ class Formulesanschauffeur
      */
     private $numlocation;
 
-    /**
-     * @var \Formule
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Formule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="IDFormule")
-     * })
-     */
-    private $id;
 
     public function getDuree(): ?int
     {
@@ -79,17 +63,7 @@ class Formulesanschauffeur
         return $this;
     }
 
-    public function getLibelle(): ?string
-    {
-        return $this->libelle;
-    }
-
-    public function setLibelle(?string $libelle): self
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
+    
 
     public function getNumlocation(): ?Locsanschauffeur
     {
@@ -99,18 +73,6 @@ class Formulesanschauffeur
     public function setNumlocation(?Locsanschauffeur $numlocation): self
     {
         $this->numlocation = $numlocation;
-
-        return $this;
-    }
-
-    public function getId(): ?Formule
-    {
-        return $this->id;
-    }
-
-    public function setId(?Formule $id): self
-    {
-        $this->id = $id;
 
         return $this;
     }

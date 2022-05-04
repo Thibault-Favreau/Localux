@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="LOCATION", indexes={@ORM\Index(name="FK_LOCATION_VEHICULE", columns={"IMMATRICULATION"}), @ORM\Index(name="FK_LOCATION_CLIENT", columns={"ID"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="typeLoca", type="string")
+ * @ORM\DiscriminatorMap({"locavecchauffeur" = "Locavecchauffeur", "locsanschauffeur" = "Locsanschauffeur"})
  */
 class Location
 {

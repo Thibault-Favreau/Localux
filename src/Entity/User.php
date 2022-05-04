@@ -5,10 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
- *
- * @ORM\Table(name="USER")
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="typeUser", type="string")
+ * @ORM\DiscriminatorMap({"salarie" = "Salarie", "client" = "Client"})
  */
 class User
 {
@@ -80,12 +80,12 @@ class User
     public function getPassword(): string
     {
         // à remplacer éventuellement par la propriété contenant le mot de passe
-        return $this->password;
+        return $this->motdepasse;
     }
     public function setPassword(string $password): self
     {
         // à remplacer éventuellement par la propriété contenant le mot de passe
-        $this->password = $password;
+        $this->motdepasse = $password;
         return $this;
     }
 
@@ -137,11 +137,7 @@ class User
         return $this;
     }
 
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
+    
     public function setLogin(?string $login): self
     {
         $this->login = $login;
@@ -149,15 +145,5 @@ class User
         return $this;
     }
 
-    public function getMotdepasse(): ?string
-    {
-        return $this->motdepasse;
-    }
-
-    public function setMotdepasse(?string $motdepasse): self
-    {
-        $this->motdepasse = $motdepasse;
-
-        return $this;
-    }
+    
 }

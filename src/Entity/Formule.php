@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="FORMULE", uniqueConstraints={@ORM\UniqueConstraint(name="IDFormule", columns={"IDFormule"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="typeFormule", type="string")
+ * @ORM\DiscriminatorMap({"formuleavecchauffeur" = "Formuleavecchauffeur", "formulesanschauffeur" = "Formulesanschauffeur"})
  */
 class Formule
 {

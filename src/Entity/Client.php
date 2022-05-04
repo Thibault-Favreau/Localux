@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="CLIENT")
  * @ORM\Entity
  */
-class Client
+class Client extends User
 {
     /**
      * @var string|null
@@ -68,45 +68,7 @@ class Client
      */
     private $numcarte;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="NOM", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $nom;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="PRENOM", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $prenom;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="LOGIN", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $login;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="MOTDEPASSE", type="string", length=512, nullable=true)
-     */
-    private $motdepasse;
-
-    /**
-     * @var \User
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID", referencedColumnName="ID")
-     * })
-     */
-    private $id;
+    
 
     public function getTel(): ?string
     {
@@ -204,65 +166,6 @@ class Client
         return $this;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(?string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(?string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(?string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getMotdepasse(): ?string
-    {
-        return $this->motdepasse;
-    }
-
-    public function setMotdepasse(?string $motdepasse): self
-    {
-        $this->motdepasse = $motdepasse;
-
-        return $this;
-    }
-
-    public function getId(): ?User
-    {
-        return $this->id;
-    }
-
-    public function setId(?User $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
+    
 
 }
