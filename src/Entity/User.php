@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="typeUser", type="string")
  * @ORM\DiscriminatorMap({"salarie" = "Salarie", "client" = "Client"})
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -20,7 +21,10 @@ class User
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
+    
+    /**
+    * @ORM\Column(type="json")
+    */
     private $roles = [];
 
 
@@ -56,7 +60,7 @@ class User
      * A visual identifier that represents this user.
      * @see UserInterface
      */
-    public function getUserIdentifier(): string
+    public function getUsername(): string
     {
         return (string) $this->login;
     }
@@ -74,6 +78,7 @@ class User
         return $this;
     }
 
+    
     /**
      * @see PasswordAuthenticatedUserInterface
      */

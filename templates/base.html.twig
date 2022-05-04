@@ -32,11 +32,17 @@
                             <li class="nav-item">
 								<img src ="Localux.jpg" style="height:75px; width:100px; border-radius:8px;"></img>
 							</li>
+							
+ 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+ 							<li><a href="{{ path('security_logout') }}" style="font-weight: 500;font-size: x-large;color:white;">Se déconnecter</a></li> 
+ 							
+							
 							<li class="nav-item">
 								<a class="nav-link" style="font-weight: 500;font-size: x-large;color:white;"href="{{path('reservation')}}">Réserver</a>
 							</li>
                             <li class="nav-item">
 							</li>
+							{% endif %}
                             <li class="nav-item">
 								<a class="nav-link" style="font-weight: 500; font-size: x-large; color:white;" href="{{path('connexion')}}">Connexion</a>
 							</li>
