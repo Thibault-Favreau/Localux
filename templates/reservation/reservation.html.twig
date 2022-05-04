@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-
+{% block javascripts %}
+<script type="text/javascript" src="{{asset("js/reserv.js")}}"></script>
+{% endblock %}
 {% block body %}
 
 <div>
@@ -10,7 +12,7 @@
 <center>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-		<div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,darkgreen, lightgreen); text:white; ">
+		<div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to top,darkgreen, lightgreen); text:white; ">
 			<div class="card-body">
             <h4 class="card-title" style="color:white;">Formule demi-journée</h4>
             <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 4h</p>
@@ -23,7 +25,7 @@
         </div>
         </div>
         <div class="col">
-        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,purple, pink); text:white; ">
+        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to top,purple, pink); text:white; ">
 			<div class="card-body">
             <h4 class="card-title" style="color:white;">Formule journée</h4>
             <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</p>
@@ -36,7 +38,7 @@
         </div>
         </div>
         <div class="col">
-        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,darkred, lightred); text:white; ">
+        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to top,darkred, orange); text:white; ">
 			    <div class="card-body">
                 <h4 class="card-title" style="color:white;">Formule 2 jours</h4>
                 <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 48h</p>
@@ -55,7 +57,7 @@
                 <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</p>
                 <p class="card-text" style="color:white;"> -> Vous n'avez plus qu'a vous laisser guider</p>
                 <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="chauffeur" value="chauffeur">
+              <input class="form-check-input" type="checkbox" id="btnchauffeur" name='btnchauffeur'>
               <label class="form-check-label" style="color:white;"for="inlineCheckbox1">Je choisis cette formule</label>
               </div>
                 </div>
@@ -96,10 +98,10 @@
 </div>
 
 <div id="prix">
-<h3 style="text-align:center;">{{ prix }} €</h3>
+  <h2 name="prix" style="text-align:center;border-style: ridge; color:green;border-color: green; margin-left:47%; width:80px;border-radius:10px;margin-bottom:10px;" >0 €</h2>
 </div>
 
 <div id="submit">
-<button class="btn"><i<i class="fa-solid fa-car-side"></i> <i class="fa-solid fa-arrow-right"></i> Reserver</button>
+  <a class="btn" href="{{path('validation')}}"><i class="fa-solid fa-car-side"></i> <i class="fa-solid fa-arrow-right"></i> Reserver</button>
 </div>
 {% endblock %}

@@ -14,9 +14,8 @@ class HomeController extends AbstractController
      */
     public function reservation(): Response
     {
-        $lePrix=0;
         return $this->render('reservation/reservation.html.twig', [
-            'controller_name' => 'HomeController', 'prix' => $lePrix
+            'controller_name' => 'HomeController'
         ]);
     }
 
@@ -46,7 +45,7 @@ class HomeController extends AbstractController
      */
     public function validation(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('validation/validation.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
