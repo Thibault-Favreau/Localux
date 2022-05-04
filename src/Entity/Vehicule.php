@@ -38,5 +38,34 @@ class Vehicule
      */
     private $id;
 
+    public function getImmatriculation(): ?string
+    {
+        return $this->immatriculation;
+    }
+
+    public function getCouleur(): ?string
+    {
+        return $this->couleur;
+    }
+
+    public function setCouleur(?string $couleur): self
+    {
+        $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getId(): ?Modele
+    {
+        return $this->id;
+    }
+
+    public function setId(?Modele $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

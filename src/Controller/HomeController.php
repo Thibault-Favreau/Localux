@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Locavecchauffeur;
+use App\Entity\Modele;
+use DateTime;
+use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 class HomeController extends AbstractController
 {
@@ -22,8 +27,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/connexion", name="connexion")
      */
-    public function connexion(): Response
+    public function connexion($request): Response
     {
+        
         return $this->render('connexion/connexion.html.twig', [
             'controller_name' => 'HomeController',
         ]);

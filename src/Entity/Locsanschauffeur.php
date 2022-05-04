@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="LOCSANSCHAUFFEUR")
  * @ORM\Entity
  */
-class Locsanschauffeur
+class Locsanschauffeur extends Location
 {
     /**
      * @var int|null
@@ -26,59 +26,31 @@ class Locsanschauffeur
      */
     private $nbkmretour;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATELOCATION", type="date", nullable=true)
-     */
-    private $datelocation;
+    
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="MONTANTREGLE", type="string", length=32, nullable=true, options={"fixed"=true})
-     */
-    private $montantregle;
+    public function getNbkmdepart(): ?int
+    {
+        return $this->nbkmdepart;
+    }
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHEUREDEPARTPREVU", type="datetime", nullable=true)
-     */
-    private $dateheuredepartprevu;
+    public function setNbkmdepart(?int $nbkmdepart): self
+    {
+        $this->nbkmdepart = $nbkmdepart;
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHEURERETOURPREVU", type="datetime", nullable=true)
-     */
-    private $dateheureretourprevu;
+        return $this;
+    }
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHEUREDEPARTREEL", type="datetime", nullable=true)
-     */
-    private $dateheuredepartreel;
+    public function getNbkmretour(): ?int
+    {
+        return $this->nbkmretour;
+    }
 
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="DATEHEURERETOURREEL", type="datetime", nullable=true)
-     */
-    private $dateheureretourreel;
+    public function setNbkmretour(?int $nbkmretour): self
+    {
+        $this->nbkmretour = $nbkmretour;
 
-    /**
-     * @var \Location
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Location")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="NUMLOCATION", referencedColumnName="NUMLOCATION")
-     * })
-     */
-    private $numlocation;
+        return $this;
+    }
 
-
+    
 }

@@ -7,8 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Location
  *
- * @ORM\Table(name="LOCATION", indexes={@ORM\Index(name="FK_LOCATION_CLIENT", columns={"ID"}), @ORM\Index(name="FK_LOCATION_VEHICULE", columns={"IMMATRICULATION"})})
+ * @ORM\Table(name="LOCATION", indexes={@ORM\Index(name="FK_LOCATION_VEHICULE", columns={"IMMATRICULATION"}), @ORM\Index(name="FK_LOCATION_CLIENT", columns={"ID"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="typeLoca", type="string")
+ * @ORM\DiscriminatorMap({"locavecchauffeur" = "Locavecchauffeur", "locsanschauffeur" = "Locsanschauffeur"})
  */
 class Location
 {
@@ -82,6 +85,107 @@ class Location
      * })
      */
     private $id;
+
+    public function getNumlocation(): ?int
+    {
+        return $this->numlocation;
+    }
+
+    public function getDatelocation(): ?\DateTimeInterface
+    {
+        return $this->datelocation;
+    }
+
+    public function setDatelocation(?\DateTimeInterface $datelocation): self
+    {
+        $this->datelocation = $datelocation;
+
+        return $this;
+    }
+
+    public function getMontantregle(): ?string
+    {
+        return $this->montantregle;
+    }
+
+    public function setMontantregle(?string $montantregle): self
+    {
+        $this->montantregle = $montantregle;
+
+        return $this;
+    }
+
+    public function getDateheuredepartprevu(): ?\DateTimeInterface
+    {
+        return $this->dateheuredepartprevu;
+    }
+
+    public function setDateheuredepartprevu(?\DateTimeInterface $dateheuredepartprevu): self
+    {
+        $this->dateheuredepartprevu = $dateheuredepartprevu;
+
+        return $this;
+    }
+
+    public function getDateheureretourprevu(): ?\DateTimeInterface
+    {
+        return $this->dateheureretourprevu;
+    }
+
+    public function setDateheureretourprevu(?\DateTimeInterface $dateheureretourprevu): self
+    {
+        $this->dateheureretourprevu = $dateheureretourprevu;
+
+        return $this;
+    }
+
+    public function getDateheuredepartreel(): ?\DateTimeInterface
+    {
+        return $this->dateheuredepartreel;
+    }
+
+    public function setDateheuredepartreel(?\DateTimeInterface $dateheuredepartreel): self
+    {
+        $this->dateheuredepartreel = $dateheuredepartreel;
+
+        return $this;
+    }
+
+    public function getDateheureretourreel(): ?\DateTimeInterface
+    {
+        return $this->dateheureretourreel;
+    }
+
+    public function setDateheureretourreel(?\DateTimeInterface $dateheureretourreel): self
+    {
+        $this->dateheureretourreel = $dateheureretourreel;
+
+        return $this;
+    }
+
+    public function getImmatriculation(): ?Vehicule
+    {
+        return $this->immatriculation;
+    }
+
+    public function setImmatriculation(?Vehicule $immatriculation): self
+    {
+        $this->immatriculation = $immatriculation;
+
+        return $this;
+    }
+
+    public function getId(): ?Client
+    {
+        return $this->id;
+    }
+
+    public function setId(?Client $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
 
 }
