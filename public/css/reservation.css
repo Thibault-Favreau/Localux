@@ -5,12 +5,14 @@ body
   -webkit-font-smoothing: antialiased;
 }
 #submit{
-  margin-left:49%;
-  border-radius: 16px;
+  margin-left:45%;
+  border-radius: 8px;
   border-style: groove;
   border-color: black;
   width: 200px;
 }
+
+
 *
 {
   -webkit-box-sizing: border-box;
@@ -26,14 +28,21 @@ h5
   font-weight:700;
 }
 
+.card{
+  
+  padding: 1rem;
+  position: relative;
+  padding:3px;
+}
+
 p
 {
-  font-size:12px;
+  font-size:14px;
 }
 
 .center
 {
-  height:100vh;
+  height:300px;
   width:100%;
   display: flex;
   justify-content: right;
@@ -98,10 +107,6 @@ p
   text-align:center;
 }
 
-/* Social Icons */
-
-
-/* Property Cards Hover States */
 
 .property-card:hover .property-description
 {

@@ -7,51 +7,77 @@
 </div>
 
 <div id="formules">
+<center>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-		<div class="card" style="border-radius:16px; width:16rem; height:250px; background-color:green; text:white; ">
+		<div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,darkgreen, lightgreen); text:white; ">
 			<div class="card-body">
-            <h4 class="card-title" style="color:white;">Formule demi journée</h4>
-            <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 4h</a>
-            <a class="card-text" style="color:white;"> -> Jusqu'a 150 km</a>
+            <h4 class="card-title" style="color:white;">Formule demi-journée</h4>
+            <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 4h</p>
+            <p class="card-text" style="color:white;"> -> Jusqu'a 150 km</p>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="4" value="4">
+            <label class="form-check-label" style="color:white;"for="inlineCheckbox1">Je choisis cette formule</label>
+            </div>
             </div>
         </div>
         </div>
         <div class="col">
-        <div class="card" style="border-radius:16px; width:16rem; height:250px; background-color:orange; text:white; ">
+        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,purple, pink); text:white; ">
 			<div class="card-body">
-            <h4 class="card-title" style="color:white;">Formule demi journée</h4>
-            <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</a>
-            <a class="card-text" style="color:white;"> -> Jusqu'a 300 km</a>
+            <h4 class="card-title" style="color:white;">Formule journée</h4>
+            <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</p>
+            <p class="card-text" style="color:white;"> -> Jusqu'a 300 km</p>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="24" value="24">
+            <label class="form-check-label" style="color:white;"for="inlineCheckbox1">Je choisis cette formule</label>
+            </div>
             </div>
         </div>
         </div>
         <div class="col">
-        <div class="card" style="border-radius:16px; width:16rem; height:250px; background-color:red; text:white; ">
+        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to right,darkred, lightred); text:white; ">
 			    <div class="card-body">
-                <h4 class="card-title" style="color:white;">Formule demi journée</h4>
-                <a class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 48h</a>
-                <a class="card-text" style="color:white;"> -> Jusqu'a 700 km</a>
+                <h4 class="card-title" style="color:white;">Formule 2 jours</h4>
+                <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 48h</p>
+                <p class="card-text" style="color:white;"> -> Jusqu'a 700 km</p>
+                <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="48" value="48">
+              <label class="form-check-label" style="color:white;"for="inlineCheckbox1">Je choisis cette formule</label>
+              </div>
+                </div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card" style="border-radius:16px; width:16rem; height:250px; background: linear-gradient(to top,darkblue, lightblue); text:white; ">
+			    <div class="card-body">
+                <h4 class="card-title" style="color:white;">Formule avec chauffeur</h4>
+                <p class="card-text" style="color:white;"> -> Location du véhicule de votre choix pendant 24h</p>
+                <p class="card-text" style="color:white;"> -> Vous n'avez plus qu'a vous laisser guider</p>
+                <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="chauffeur" value="chauffeur">
+              <label class="form-check-label" style="color:white;"for="inlineCheckbox1">Je choisis cette formule</label>
+              </div>
                 </div>
         </div>
         </div>
     </div>
     </div>
+    </center>
 </div>
 </div>
 </div>
-<input type="datetime-local">Date, jour et heure de départ</input>
+<label for datePicker>Date, jour et heure de départ</label>
+<input type="datetime-local" style="margin-top:20px;"id="datePicker"></input>
 
-
-<label for ="vehicules">Choisissez votre véhicule</label>
-<select class="form-select" id="vehicules">
-<option value="">Choisir le véhicule </option> 
+<div class="center">
+<label for ="vehicules" style="margin-right:3px;">Choisissez votre véhicule </label>
+<select class="form-select" style="height:25px; margin-right:15px;"id="vehicules">
+<option value="clicked">Choisir le véhicule </option> 
+<option value="rs">Renault Scénic</option>
 {# {{% for %}}
 {{% endfor %}} #}
 </select>
-
-
-<div class="center">
   <div class="property-card">
     <a href="#">
       <div class="property-image">
@@ -64,17 +90,16 @@
       <h5> Modèle </h5>
       <p>Infos sur la voiture</p>
     </div>
-    {# <a href="#">
-      <div class="property-social-icons">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a> #}
+    
+    </a> 
   </div>
 </div>
 
-
+<div id="prix">
+<h3 style="text-align:center;">{{ prix }} €</h3>
+</div>
 
 <div id="submit">
-<button class="btn"><i<i class="fa-solid fa-car-side"> -> </i>Reserver</button>
+<button class="btn"><i<i class="fa-solid fa-car-side"></i> <i class="fa-solid fa-arrow-right"></i> Reserver</button>
 </div>
 {% endblock %}
